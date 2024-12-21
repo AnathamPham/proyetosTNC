@@ -1,0 +1,34 @@
+
+<!-- views/dashboard/dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CodeCraft Academy</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="logo">CodeCraft Academy</div>
+        <ul>
+            <li><a href="/dashboard">Inicio</a></li>
+            <li><a href="/courses">Mis Cursos</a></li>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/auth/logout">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    <main class="dashboard-content">
+        <h1>Bienvenido, <%= user.name %></h1>
+        <div class="courses-grid">
+            <% user.enrolledCourses.forEach(course => { %>
+                <div class="course-card">
+                    <h3><%= course.title %></h3>
+                    <p><%= course.description %></p>
+                    <a href="/courses/<%= course._id %>" class="btn">Ir al curso</a>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- views/public/index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft Academy - Aprende a programar</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="nav-container">
+        <nav>
+            <div class="logo">
+                <h1>CodeCraft Academy</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/courses">Cursos</a></li>
+                <li><a href="/about">Nosotros</a></li>
+                <li><a href="/contact">Contacto</a></li>
+                <li><a href="/auth/login" class="btn">Aula Virtual</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Construye tu futuro en tecnología</h1>
+                <p>Aprende programación con expertos de la industria</p>
+                <a href="/courses" class="btn">Ver Cursos</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>¿Por qué elegirnos?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Instructores Expertos</h3>
+                    <p>Aprende de profesionales con experiencia real en la industria.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Proyectos Prácticos</h3>
+                    <p>Construye un portafolio mientras aprendes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Soporte 24/7</h3>
+                    <p>Asistencia técnica y académica cuando la necesites.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="courses-preview">
+            <h2>Cursos Destacados</h2>
+            <div class="course-grid">
+                <% featuredCourses.forEach(course => { %>
+                    <div class="course-card fade-in">
+                        <h3><%= course.title %></h3>
+                        <p><%= course.description %></p>
+                        <div class="course-meta">
+                            <span>Duración: <%= course.duration %> horas</span>
+                            <span>Nivel: <%= course.level %></span>
+                        </div>
+                        <a href="/courses/<%= course._id %>" class="btn">Más información</a>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CodeCraft Academy</h3>
+                <p>Transformando carreras a través de la educación en tecnología.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="/courses">Cursos</a></li>
+                    <li><a href="/about">Sobre Nosotros</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: info@codecraft.com</p>
+                <p>Teléfono: (123) 456-7890</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
